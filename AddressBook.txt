@@ -1,0 +1,52 @@
+#UC1
+CREATE DATABASE Address_Book_Service;
+
+#UC2
+SHOW DATABASES;
+USE address_book_service;
+CREATE TABLE address_book_table
+    -> (
+    -> First_name VARCHAR(150) NOT NULL,
+    -> Last_name VARCHAR(150) NOT NULL,
+    -> Address VARCHAR(150) NOT NULL,
+    -> City VARCHAR(150) NOT NULL,
+    -> State VARCHAR(150) NOT NULL,
+    -> ZIP INT(10) NOT NUll,
+    -> Phone_number INT(10) NOT NULL,
+    -> Email VARCHAR(150) NOT NULL
+    -> );
+
+#UC3
+INSERT INTO address_book_table (First_name,Last_name,Address,City,State,ZIP,Phone_number,Email) VALUES
+    -> ('Karan','Mehta','11th Street','Mumbai','Texas',456123,78998745,'karan@gmail.com');
+INSERT INTO address_book_table (First_name,Last_name,Address,City,State,ZIP,Phone_number,Email) VALUES
+    -> ('Sarvesh','Shetty','12th Street','Pune','California',469123,72228745,'sarvesh@gmail.com');
+INSERT INTO address_book_table (First_name,Last_name,Address,City,State,ZIP,Phone_number,Email) VALUES
+    -> ('Ankit','Pandey','13th Street','Gurugram','Florida',469893,72338745,'ankit@gmail.com');
+select * from address_book_table
+
+#UC4
+update address_book_table set City = 'Lucknow' where First_name = 'Karan';
+
+#UC5
+DELETE FROM address_book_data WHERE First_name = 'Sarvesh';
+
+#UC6
+SELECT * from address_book_table WHERE City = 'Lucknow' or State = 'Texas';
+
+#UC7
+SELECT COUNT(First_name) FROM address_book_table;
+
+#UC8
+SELECT * FROM address_book_table ORDER BY First_name;
+
+#UC9
+update address_book_table set type = 'Family' where First_name = 'Ankit';
+update address_book_table set type = 'Friends' where First_name = 'Karan';
+
+#UC10
+SELECT COUNT(type) FROM address_book_table;
+
+#UC11
+INSERT INTO address_book_table (First_name,Last_name,type,Address,City,State,ZIP,Phone_number,Email) VALUES
+    -> ('Sarvesh','Shetty','Friends','12th Street','Pune','California',469123,72228745,'sarvesh@gmail.com');
